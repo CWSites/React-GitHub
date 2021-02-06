@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { GoRepoForked, GoStar } from "react-icons/go";
-
+import Repositories from "./Repositories";
 import "./App.scss";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
+const lsRepos = localStorage.getItem("repos");
 
-type Repo = {
+export type Repo = {
   description: string;
   forks: number;
   language: string;
@@ -13,36 +13,56 @@ type Repo = {
   stargazers_count: number;
   url: string;
 };
-type Repos = Array<Repo>;
+export type Repos = Array<Repo>;
 
 const App = () => {
-  const [repos, updateRepos] = useState<Repos>([]);
-  const [status, updateStatus] = useState("loading");
+  const [fetchStatus, updateFetchStatus] = useState(false);
+  const [repos, updateRepos] = useState<Repos>(
+    lsRepos ? JSON.parse(lsRepos) : []
+  );
 
   useEffect(() => {
-    fetchData("https://api.github.com/users/octocat/repos");
+    if (!lsRepos && !fetchStatus) {
+      refreshData();
+    }
   });
 
-  const sortRepos = (repos: Repos) => {
+  const evaluateResult = (repos: Repos) => {
+    if (repos.length > 0) {
+      const sortedRepos: Repos = sortByStars(repos);
+      localStorage.setItem("repos", JSON.stringify(sortedRepos));
+      updateRepos(sortedRepos);
+    } else {
+      console.error("an error occurred...", repos);
+    }
+  };
+
+  const sortByStars = (repos: Repos) => {
     // sort repos desc based on stars
     repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-    updateRepos(repos);
+    return repos;
+  };
+
+  const refreshData = () => {
+    fetchData("https://api.github.com/users/octocat/repos");
   };
 
   const fetchData = (url: string) => {
+    // prevent from sending repeated requests
+    updateFetchStatus(true);
+
     fetch(url, {
       headers: {
         Authorization: `token ${GitHubToken}`,
+        "User-Agent": "CWSites",
       },
     })
       .then((res) => res.json())
       .then(
         (result) => {
-          updateStatus("done");
-          sortRepos(result);
+          evaluateResult(result);
         },
         (error) => {
-          updateStatus("error");
           console.error(error);
         }
       );
@@ -56,41 +76,17 @@ const App = () => {
         </a>
         <a href="/">
           Repositories
-          <span className="count">{repos ? repos.length : 0}</span>
+          <span className="count">{repos ? repos.length : "0"}</span>
         </a>
       </nav>
       <main>
         <header>
           <h2>Popular repositories</h2>
+          <span className="refresh" onClick={refreshData}>
+            Refresh
+          </span>
         </header>
-        <section className="content">
-          {status === "done" &&
-            repos.map((repo, index) => (
-              <div className="card" key={index}>
-                <div className="card-header">
-                  <h3>
-                    <a href={repo.url}>{repo.name}</a>
-                    {/* <span className="forked">Forked from {}</span> */}
-                  </h3>
-                </div>
-                <p>{repo.description}</p>
-                <div className="card-footer">
-                  {repo.language && (
-                    <span>
-                      <span className={`dot ${repo.language}`}></span>
-                      {repo.language}
-                    </span>
-                  )}
-                  <span>
-                    <GoStar /> {repo.stargazers_count}
-                  </span>
-                  <span>
-                    <GoRepoForked /> {repo.forks}
-                  </span>
-                </div>
-              </div>
-            ))}
-        </section>
+        <Repositories repos={repos} />
       </main>
     </div>
   );

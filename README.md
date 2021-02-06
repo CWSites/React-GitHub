@@ -36,6 +36,7 @@ In order to run the application run the following commands in a terminal.
 
 - `react` - my front-end framework of choice for performance and ease of use.
 - [`create-react-app`](https://github.com/facebook/create-react-app) - ability to get up and running quickly
+- [`react-icons`](https://react-icons.github.io/react-icons/icons?name=go) - pull in GitHub icons
 
 # Create React App
 

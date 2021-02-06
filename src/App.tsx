@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { GoRepoForked, GoStar } from "react-icons/go";
 
 import "./App.css";
+import "./colors.css";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
 
@@ -69,24 +71,23 @@ const App = () => {
                 <div className="card-header">
                   <h3>
                     <a href={repo.url}>{repo.name}</a>
-                    <span className="forked">Forked from {}</span>
+                    {/* <span className="forked">Forked from {}</span> */}
                   </h3>
                 </div>
                 <p>{repo.description}</p>
                 <div className="card-footer">
-                  <ul>
-                    {repo.language && (
-                      <li>
-                        <i className="icon circle" /> {repo.language}
-                      </li>
-                    )}
-                    <li>
-                      <i className="icon star" /> {repo.stargazers_count}
-                    </li>
-                    <li>
-                      <i className="icon fork" /> {repo.forks}
-                    </li>
-                  </ul>
+                  {repo.language && (
+                    <span>
+                      <span className={`dot ${repo.language}`}></span>
+                      {repo.language}
+                    </span>
+                  )}
+                  <span>
+                    <GoStar /> {repo.stargazers_count}
+                  </span>
+                  <span>
+                    <GoRepoForked /> {repo.forks}
+                  </span>
                 </div>
               </div>
             ))}

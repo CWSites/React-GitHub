@@ -65,3 +65,34 @@ section.content {
 .card p {
   font-size: 0.9rem;
 }
+
+.card .card-footer {
+  align-items: center;
+  display: flex;
+  padding-top: 8px;
+}
+
+.card .card-footer > span {
+  font-size: 0.9rem;
+  margin-right: 16px;
+}
+
+.card .card-footer svg {
+  font-size: 1rem;
+  position: relative;
+  top: 2px;
+}
+
+.card .card-footer .dot {
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  margin-right: 4px;
+  position: relative;
+  top: 1px;
+  width: 12px;
+}
+
+.dot.html {
+  background-color: #e34c26;
+}

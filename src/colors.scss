@@ -1,0 +1,556 @@
+.dot {
+  &.Mercury {
+    background: #ff2b2b;
+  }
+  &.TypeScript {
+    background: #2b7489;
+  }
+  &.PureBasic {
+    background: #5a6986;
+  }
+  /* &.Objective-C++ { background: #6866fb; } */
+  &.Self {
+    background: #0579aa;
+  }
+  &.edn {
+    background: #db5855;
+  }
+  &.NewLisp {
+    background: #87aed7;
+  }
+  /* &.Jupyter Notebook { background: #DA5B0B; } */
+  &.Rebol {
+    background: #358a5b;
+  }
+  &.Frege {
+    background: #00cafe;
+  }
+  &.Dart {
+    background: #00b4ab;
+  }
+  &.AspectJ {
+    background: #a957b0;
+  }
+  &.Shell {
+    background: #89e051;
+  }
+  /* &.Web Ontology Language { background: #9cc9dd; } */
+  &.xBase {
+    background: #403a40;
+  }
+  &.Eiffel {
+    background: #946d57;
+  }
+  &.Nix {
+    background: #7e7eff;
+  }
+  &.RAML {
+    background: #77d9fb;
+  }
+  &.MTML {
+    background: #b7e1f4;
+  }
+  &.Racket {
+    background: #22228f;
+  }
+  &.Elixir {
+    background: #6e4a7e;
+  }
+  &.SAS {
+    background: #b34936;
+  }
+  &.Agda {
+    background: #315665;
+  }
+  &.wisp {
+    background: #7582d1;
+  }
+  &.D {
+    background: #ba595e;
+  }
+  &.Kotlin {
+    background: #f18e33;
+  }
+  &.Opal {
+    background: #f7ede0;
+  }
+  &.Crystal {
+    background: #776791;
+  }
+  &.Objective-C {
+    background: #438eff;
+  }
+  /* &.ColdFusion CFC { background: #ed2cd6; } */
+  &.Oz {
+    background: #fab738;
+  }
+  &.Mirah {
+    background: #c7a938;
+  }
+  &.Objective-J {
+    background: #ff0c5a;
+  }
+  &.Gosu {
+    background: #82937f;
+  }
+  &.FreeMarker {
+    background: #0050b2;
+  }
+  &.Ruby {
+    background: #701516;
+  }
+  /* &.Component Pascal { background: #b0ce4e; } */
+  &.Arc {
+    background: #aa2afe;
+  }
+  &.Brainfuck {
+    background: #2f2530;
+  }
+  &.Nit {
+    background: #009917;
+  }
+  &.APL {
+    background: #5a8164;
+  }
+  &.Go {
+    background: #375eab;
+  }
+  /* &.Visual Basic { background: #945db7; } */
+  &.PHP {
+    background: #4f5d95;
+  }
+  &.Cirru {
+    background: #ccccff;
+  }
+  &.SQF {
+    background: #3f3f3f;
+  }
+  &.Glyph {
+    background: #e4cc98;
+  }
+  &.Java {
+    background: #b07219;
+  }
+  &.MAXScript {
+    background: #00a6a6;
+  }
+  &.Scala {
+    background: #dc322f;
+  }
+  &.Makefile {
+    background: #427819;
+  }
+  &.ColdFusion {
+    background: #ed2cd6;
+  }
+  &.Perl {
+    background: #0298c3;
+  }
+  &.Lua {
+    background: #000080;
+  }
+  &.Vue {
+    background: #2c3e50;
+  }
+  &.Verilog {
+    background: #b2b7f8;
+  }
+  &.Factor {
+    background: #636746;
+  }
+  &.Haxe {
+    background: #df7900;
+  }
+  &.Pure Data {
+    background: #91de79;
+  }
+  &.Forth {
+    background: #341708;
+  }
+  &.Red {
+    background: #ee0000;
+  }
+  &.Hy {
+    background: #7790b2;
+  }
+  &.Volt {
+    background: #1f1f1f;
+  }
+  &.LSL {
+    background: #3d9970;
+  }
+  &.eC {
+    background: #913960;
+  }
+  &.CoffeeScript {
+    background: #244776;
+  }
+  &.HTML {
+    background: #e44b23;
+  }
+  &.Lex {
+    background: #dbca00;
+  }
+  /* &.API Blueprint { background: #2ACCA8; } */
+  &.Swift {
+    background: #ffac45;
+  }
+  &.C {
+    background: #555555;
+  }
+  &.AutoHotkey {
+    background: #6594b9;
+  }
+  &.Isabelle {
+    background: #fefe00;
+  }
+  &.Metal {
+    background: #8f14e9;
+  }
+  &.Clarion {
+    background: #db901e;
+  }
+  &.JSONiq {
+    background: #40d47e;
+  }
+  &.Boo {
+    background: #d4bec1;
+  }
+  &.AutoIt {
+    background: #1c3552;
+  }
+  &.Clojure {
+    background: #db5855;
+  }
+  &.Rust {
+    background: #dea584;
+  }
+  &.Prolog {
+    background: #74283c;
+  }
+  &.SourcePawn {
+    background: #5c7611;
+  }
+  &.AMPL {
+    background: #e6efbb;
+  }
+  &.FORTRAN {
+    background: #4d41b1;
+  }
+  &.ANTLR {
+    background: #9dc3ff;
+  }
+  &.Harbour {
+    background: #0e60e3;
+  }
+  &.Tcl {
+    background: #e4cc98;
+  }
+  &.BlitzMax {
+    background: #cd6400;
+  }
+  &.PigLatin {
+    background: #fcd7de;
+  }
+  &.Lasso {
+    background: #999999;
+  }
+  &.ECL {
+    background: #8a1267;
+  }
+  &.VHDL {
+    background: #adb2cb;
+  }
+  &.Elm {
+    background: #60b5cc;
+  }
+  /* &.Propeller Spin { background: #7fa2a7; } */
+  &.X10 {
+    background: #4b6bef;
+  }
+  &.IDL {
+    background: #a3522f;
+  }
+  &.ATS {
+    background: #1ac620;
+  }
+  &.Ada {
+    background: #02f88c;
+  }
+  /* &.Unity3D Asset { background: #ab69a1; } */
+  &.Nu {
+    background: #c9df40;
+  }
+  &.LFE {
+    background: #004200;
+  }
+  &.SuperCollider {
+    background: #46390b;
+  }
+  &.Oxygene {
+    background: #cdd0e3;
+  }
+  &.ASP {
+    background: #6a40fd;
+  }
+  &.Assembly {
+    background: #6e4c13;
+  }
+  &.Gnuplot {
+    background: #f0a9f0;
+  }
+  &.JFlex {
+    background: #dbca00;
+  }
+  &.NetLinx {
+    background: #0aa0ff;
+  }
+  &.Turing {
+    background: #45f715;
+  }
+  &.Vala {
+    background: #fbe5cd;
+  }
+  &.Processing {
+    background: #0096d8;
+  }
+  &.Arduino {
+    background: #bd79d1;
+  }
+  &.FLUX {
+    background: #88ccff;
+  }
+  &.NetLogo {
+    background: #ff6375;
+  }
+  /* &.C Sharp { background: #178600; } */
+  &.CSS {
+    background: #563d7c;
+  }
+  /* &.Emacs Lisp { background: #c065db; } */
+  &.Stan {
+    background: #b2011d;
+  }
+  &.SaltStack {
+    background: #646464;
+  }
+  &.QML {
+    background: #44a51c;
+  }
+  &.Pike {
+    background: #005390;
+  }
+  &.LOLCODE {
+    background: #cc9900;
+  }
+  &.ooc {
+    background: #b0b77e;
+  }
+  &.Handlebars {
+    background: #01a9d6;
+  }
+  &.J {
+    background: #9eedff;
+  }
+  &.Mask {
+    background: #f97732;
+  }
+  &.EmberScript {
+    background: #fff4f3;
+  }
+  &.TeX {
+    background: #3d6117;
+  }
+  &.Nemerle {
+    background: #3d3c6e;
+  }
+  &.KRL {
+    background: #28431f;
+  }
+  /* &.Ren'Py { background: #ff7f7f; } */
+  /* &.Unified Parallel C { background: #4e3617; } */
+  &.Golo {
+    background: #88562a;
+  }
+  &.Fancy {
+    background: #7b9db4;
+  }
+  &.OCaml {
+    background: #3be133;
+  }
+  &.Shen {
+    background: #120f14;
+  }
+  &.Pascal {
+    background: #b0ce4e;
+  }
+  /* &.F# { background: #b845fc; } */
+  &.Puppet {
+    background: #302b6d;
+  }
+  &.ActionScript {
+    background: #882b0f;
+  }
+  &.Diff {
+    background: #88dddd;
+  }
+  /* &.Ragel in Ruby Host { background: #9d5200; } */
+  &.Fantom {
+    background: #dbded5;
+  }
+  &.Zephir {
+    background: #118f9e;
+  }
+  &.Click {
+    background: #e4e6f3;
+  }
+  &.Smalltalk {
+    background: #596706;
+  }
+  &.DM {
+    background: #447265;
+  }
+  &.Ioke {
+    background: #078193;
+  }
+  &.PogoScript {
+    background: #d80074;
+  }
+  &.LiveScript {
+    background: #499886;
+  }
+  &.JavaScript {
+    background: #f1e05a;
+  }
+  &.VimL {
+    background: #199f4b;
+  }
+  &.PureScript {
+    background: #1d222d;
+  }
+  &.ABAP {
+    background: #e8274b;
+  }
+  &.Matlab {
+    background: #bb92ac;
+  }
+  &.Slash {
+    background: #007eff;
+  }
+  &.R {
+    background: #198ce7;
+  }
+  &.Erlang {
+    background: #b83998;
+  }
+  &.Pan {
+    background: #cc0000;
+  }
+  &.LookML {
+    background: #652b81;
+  }
+  &.Eagle {
+    background: #814c05;
+  }
+  &.Scheme {
+    background: #1e4aec;
+  }
+  &.PLSQL {
+    background: #dad8d8;
+  }
+  &.Python {
+    background: #3572a5;
+  }
+  &.Max {
+    background: #c4a79c;
+  }
+  /* &.Common Lisp { background: #3fb68b; } */
+  &.Latte {
+    background: #a8ff97;
+  }
+  &.XQuery {
+    background: #5232e7;
+  }
+  &.Omgrofl {
+    background: #cabbff;
+  }
+  &.XC {
+    background: #99da07;
+  }
+  &.Nimrod {
+    background: #37775b;
+  }
+  &.SystemVerilog {
+    background: #dae1c2;
+  }
+  &.Chapel {
+    background: #8dc63f;
+  }
+  &.Groovy {
+    background: #e69f56;
+  }
+  &.Dylan {
+    background: #6c616e;
+  }
+  &.E {
+    background: #ccce35;
+  }
+  &.Parrot {
+    background: #f3ca0a;
+  }
+  /* &.Grammatical Framework { background: #79aa7a; } */
+  /* &.Game Maker Language { background: #8fb200; } */
+  &.Papyrus {
+    background: #6600cc;
+  }
+  /* &.NetLinx+ERB { background: #747faa; } */
+  &.Clean {
+    background: #3f85af;
+  }
+  &.Alloy {
+    background: #64c800;
+  }
+  &.Squirrel {
+    background: #800000;
+  }
+  &.PAWN {
+    background: #dbb284;
+  }
+  &.UnrealScript {
+    background: #a54c4d;
+  }
+  /* &.Standard ML { background: #dc566d; } */
+  &.Slim {
+    background: #ff8f77;
+  }
+  &.Perl6 {
+    background: #0000fb;
+  }
+  &.Julia {
+    background: #a270ba;
+  }
+  &.Haskell {
+    background: #29b544;
+  }
+  &.NCL {
+    background: #28431f;
+  }
+  &.Io {
+    background: #a9188d;
+  }
+  &.Rouge {
+    background: #cc0088;
+  }
+  &.cpp {
+    background: #f34b7d;
+  }
+  &.AGS Script {
+    background: #b9d9ff;
+  }
+  &.Dogescript {
+    background: #cca760;
+  }
+  &.nesC {
+    background: #94b0;
+  }
+}

@@ -1,0 +1,108 @@
+@import "./colors";
+
+$gutter: 8px;
+$borderColor: #eaecef;
+$linkColor: #0366d6;
+
+.app {
+  margin: 5vh auto;
+  width: 80vw;
+}
+
+nav.main-nav {
+  border-bottom: 1px solid $borderColor;
+
+  a {
+    border-bottom: 2px solid transparent;
+    color: #586069;
+    display: inline-block;
+    font-weight: 600;
+    padding: $gutter $gutter * 2;
+
+    &:hover,
+    &:focus {
+      border-color: #d1d5da;
+    }
+
+    &.active {
+      border-color: #f9826c;
+      color: #24292e;
+    }
+
+    .count {
+      background-color: rgba(209, 213, 218, 0.5);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      padding: 1px $gutter/2;
+    }
+  }
+}
+
+header {
+  color: #24292e;
+  padding: $gutter * 3 0 $gutter;
+
+  h2 {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+}
+
+section.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 $gutter * -1;
+}
+
+.card {
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: $gutter;
+  padding: $gutter * 2;
+  width: calc(50% - 18px);
+
+  h3 a {
+    color: $linkColor;
+
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid $linkColor;
+    }
+  }
+
+  p {
+    font-size: 0.9rem;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    align-items: center;
+    display: flex;
+    padding-top: $gutter;
+
+    & > span {
+      font-size: 0.9rem;
+      margin-right: $gutter * 2;
+    }
+
+    svg {
+      font-size: 1rem;
+      position: relative;
+      top: 2px;
+    }
+
+    .dot {
+      border-radius: 50%;
+      display: inline-block;
+      height: 12px;
+      margin-right: $gutter/2;
+      position: relative;
+      top: 1px;
+      width: 12px;
+    }
+  }
+}

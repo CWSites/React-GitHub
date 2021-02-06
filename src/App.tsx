@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { GoRepoForked, GoStar } from "react-icons/go";
 
-import "./App.css";
-import "./colors.css";
+import "./App.scss";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
 

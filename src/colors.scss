@@ -8,17 +8,16 @@
   &.PureBasic {
     background: #5a6986;
   }
-  /* &.Objective-C++ { background: #6866fb; } */
   &.Self {
     background: #0579aa;
   }
-  &.edn {
+  &.edn,
+  &.Clojure {
     background: #db5855;
   }
   &.NewLisp {
     background: #87aed7;
   }
-  /* &.Jupyter Notebook { background: #DA5B0B; } */
   &.Rebol {
     background: #358a5b;
   }
@@ -34,7 +33,6 @@
   &.Shell {
     background: #89e051;
   }
-  /* &.Web Ontology Language { background: #9cc9dd; } */
   &.xBase {
     background: #403a40;
   }
@@ -80,7 +78,6 @@
   &.Objective-C {
     background: #438eff;
   }
-  /* &.ColdFusion CFC { background: #ed2cd6; } */
   &.Oz {
     background: #fab738;
   }
@@ -99,7 +96,6 @@
   &.Ruby {
     background: #701516;
   }
-  /* &.Component Pascal { background: #b0ce4e; } */
   &.Arc {
     background: #aa2afe;
   }
@@ -115,7 +111,6 @@
   &.Go {
     background: #375eab;
   }
-  /* &.Visual Basic { background: #945db7; } */
   &.PHP {
     background: #4f5d95;
   }
@@ -125,7 +120,8 @@
   &.SQF {
     background: #3f3f3f;
   }
-  &.Glyph {
+  &.Glyph,
+  &.Tcl {
     background: #e4cc98;
   }
   &.Java {
@@ -188,10 +184,10 @@
   &.HTML {
     background: #e44b23;
   }
-  &.Lex {
+  &.Lex,
+  &.JFlex {
     background: #dbca00;
   }
-  /* &.API Blueprint { background: #2ACCA8; } */
   &.Swift {
     background: #ffac45;
   }
@@ -219,9 +215,6 @@
   &.AutoIt {
     background: #1c3552;
   }
-  &.Clojure {
-    background: #db5855;
-  }
   &.Rust {
     background: #dea584;
   }
@@ -243,9 +236,6 @@
   &.Harbour {
     background: #0e60e3;
   }
-  &.Tcl {
-    background: #e4cc98;
-  }
   &.BlitzMax {
     background: #cd6400;
   }
@@ -264,7 +254,6 @@
   &.Elm {
     background: #60b5cc;
   }
-  /* &.Propeller Spin { background: #7fa2a7; } */
   &.X10 {
     background: #4b6bef;
   }
@@ -277,7 +266,6 @@
   &.Ada {
     background: #02f88c;
   }
-  /* &.Unity3D Asset { background: #ab69a1; } */
   &.Nu {
     background: #c9df40;
   }
@@ -298,9 +286,6 @@
   }
   &.Gnuplot {
     background: #f0a9f0;
-  }
-  &.JFlex {
-    background: #dbca00;
   }
   &.NetLinx {
     background: #0aa0ff;
@@ -323,11 +308,9 @@
   &.NetLogo {
     background: #ff6375;
   }
-  /* &.C Sharp { background: #178600; } */
   &.CSS {
     background: #563d7c;
   }
-  /* &.Emacs Lisp { background: #c065db; } */
   &.Stan {
     background: #b2011d;
   }
@@ -367,8 +350,6 @@
   &.KRL {
     background: #28431f;
   }
-  /* &.Ren'Py { background: #ff7f7f; } */
-  /* &.Unified Parallel C { background: #4e3617; } */
   &.Golo {
     background: #88562a;
   }
@@ -384,7 +365,7 @@
   &.Pascal {
     background: #b0ce4e;
   }
-  /* &.F# { background: #b845fc; } */
+
   &.Puppet {
     background: #302b6d;
   }
@@ -394,7 +375,7 @@
   &.Diff {
     background: #88dddd;
   }
-  /* &.Ragel in Ruby Host { background: #9d5200; } */
+
   &.Fantom {
     background: #dbded5;
   }
@@ -464,7 +445,6 @@
   &.Max {
     background: #c4a79c;
   }
-  /* &.Common Lisp { background: #3fb68b; } */
   &.Latte {
     background: #a8ff97;
   }
@@ -498,12 +478,9 @@
   &.Parrot {
     background: #f3ca0a;
   }
-  /* &.Grammatical Framework { background: #79aa7a; } */
-  /* &.Game Maker Language { background: #8fb200; } */
   &.Papyrus {
     background: #6600cc;
   }
-  /* &.NetLinx+ERB { background: #747faa; } */
   &.Clean {
     background: #3f85af;
   }
@@ -519,7 +496,6 @@
   &.UnrealScript {
     background: #a54c4d;
   }
-  /* &.Standard ML { background: #dc566d; } */
   &.Slim {
     background: #ff8f77;
   }
@@ -553,4 +529,24 @@
   &.nesC {
     background: #94b0;
   }
+  // &.Objective-C++ { background: #6866fb; }
+  // &.Jupyter Notebook { background: #DA5B0B; }
+  // &.F# { background: #b845fc; }
+  // &.Ragel in Ruby Host { background: #9d5200; }
+  // &.API Blueprint { background: #2ACCA8; }
+  // &.Visual Basic { background: #945db7; }
+  // &.Component Pascal { background: #b0ce4e; }
+  // &.ColdFusion CFC { background: #ed2cd6; }
+  // &.Web Ontology Language { background: #9cc9dd; }
+  // &.Propeller Spin { background: #7fa2a7; }
+  // &.Unity3D Asset { background: #ab69a1; }
+  // &.C Sharp { background: #178600; }
+  // &.Emacs Lisp { background: #c065db; }
+  // &.Ren'Py { background: #ff7f7f; }
+  // &.Unified Parallel C { background: #4e3617; }
+  // &.Common Lisp { background: #3fb68b; }
+  // &.Grammatical Framework { background: #79aa7a; }
+  // &.Game Maker Language { background: #8fb200; }
+  // &.NetLinx+ERB { background: #747faa; }
+  // &.Standard ML { background: #dc566d; }
 }

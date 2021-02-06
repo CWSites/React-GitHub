@@ -34,6 +34,7 @@ nav.main-nav {
       border-radius: 50%;
       font-size: 0.8rem;
       padding: 1px $gutter/2;
+      margin-left: $gutter/2;
     }
   }
 }
@@ -85,14 +86,15 @@ section.content {
     padding-top: $gutter;
 
     & > span {
+      align-items: center;
+      display: flex;
       font-size: 0.9rem;
       margin-right: $gutter * 2;
     }
 
     svg {
       font-size: 1rem;
-      position: relative;
-      top: 2px;
+      margin-right: $gutter/2;
     }
 
     .dot {

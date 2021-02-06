@@ -21,7 +21,13 @@ const App = () => {
 
   useEffect(() => {
     fetchData("https://api.github.com/users/octocat/repos");
-  }, []);
+  });
+
+  const sortRepos = (repos: Repos) => {
+    // sort repos desc based on stars
+    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    updateRepos(repos);
+  };
 
   const fetchData = (url: string) => {
     fetch(url, {
@@ -33,7 +39,7 @@ const App = () => {
       .then(
         (result) => {
           updateStatus("done");
-          updateRepos(result);
+          sortRepos(result);
         },
         (error) => {
           updateStatus("error");
@@ -42,12 +48,6 @@ const App = () => {
       );
   };
 
-  // const sortRepos = (filter: string) => {
-  //   // review repos.repository.stargazers_count
-  //   // sort based on filter
-  //   // update repos state
-  // }
-
   return (
     <div className="app">
       <nav className="main-nav">
@@ -55,8 +55,8 @@ const App = () => {
           Overview
         </a>
         <a href="/">
-          Repositories{" "}
-          <span className="count">{repos ? repos.length : null}</span>
+          Repositories
+          <span className="count">{repos ? repos.length : 0}</span>
         </a>
       </nav>
       <main>

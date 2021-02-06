@@ -5,15 +5,15 @@ export interface RepoProps {
   repos: Repos;
 }
 
-const Repositories = ({ repos }: RepoProps) => {
-  const formatNum = (num: number) => {
-    return num > 999
-      ? num % 1000 === 0
-        ? (num / 1000).toFixed(0) + "k"
-        : (num / 1000).toFixed(1) + "k"
-      : num;
-  };
+export const formatNum = (num: number) => {
+  return num > 999
+    ? num % 1000 === 0
+      ? (num / 1000).toFixed(0) + "k"
+      : (num / 1000).toFixed(1) + "k"
+    : num;
+};
 
+const Repositories = ({ repos }: RepoProps) => {
   return (
     <section className="content">
       {repos.length > 0 &&

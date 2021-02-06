@@ -6,6 +6,14 @@ export interface RepoProps {
 }
 
 const Repositories = ({ repos }: RepoProps) => {
+  const formatNum = (num: number) => {
+    return num > 999
+      ? num % 1000 === 0
+        ? (num / 1000).toFixed(0) + "k"
+        : (num / 1000).toFixed(1) + "k"
+      : num;
+  };
+
   return (
     <section className="content">
       {repos.length > 0 &&
@@ -26,10 +34,12 @@ const Repositories = ({ repos }: RepoProps) => {
                 </span>
               )}
               <span>
-                <GoStar /> {repo.stargazers_count}
+                <GoStar />
+                {formatNum(repo.stargazers_count)}
               </span>
               <span>
-                <GoRepoForked /> {repo.forks}
+                <GoRepoForked />
+                {formatNum(repo.forks)}
               </span>
             </div>
           </div>

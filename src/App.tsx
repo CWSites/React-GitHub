@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { compareAsc } from "date-fns";
 import Card from "./Card";
 import "./App.scss";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
 const lsRepos = localStorage.getItem("repos");
-const path = window.location.pathname;
 
 export type License = {
   key: string;
@@ -35,6 +35,7 @@ export const formatNum = (num: number) => {
 };
 
 const App = () => {
+  const path = window.location.pathname;
   const [fetchStatus, updateFetchStatus] = useState(false);
   const [repos, updateRepos] = useState<Repos>(
     lsRepos ? JSON.parse(lsRepos) : []
@@ -48,9 +49,8 @@ const App = () => {
 
   const evaluateResult = (repos: Repos) => {
     if (repos.length > 0) {
-      const sortedRepos: Repos = sortRepos(repos);
-      localStorage.setItem("repos", JSON.stringify(sortedRepos));
-      updateRepos(sortedRepos);
+      localStorage.setItem("repos", JSON.stringify(repos));
+      updateRepos(repos);
     } else {
       console.error("an error occurred...", repos);
     }
@@ -60,7 +60,9 @@ const App = () => {
     if (path === "/") {
       repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
     } else {
-      repos.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
+      repos.sort((a, b) =>
+        compareAsc(new Date(b.updated_at), new Date(a.updated_at))
+      );
     }
     return repos;
   };
@@ -121,7 +123,9 @@ const App = () => {
         </header>
         <section className="content">
           {repos.length > 0 &&
-            repos.map((repo, index) => <Card key={index} repo={repo} />)}
+            sortRepos(repos).map((repo, index) => (
+              <Card key={index} repo={repo} />
+            ))}
         </section>
       </main>
     </div>

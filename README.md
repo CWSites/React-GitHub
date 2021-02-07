@@ -19,18 +19,17 @@ In order to run the application run the following commands in a terminal.
 ## Acceptance Criteria
 
 - [x] Code the UI mockups below using the frontend technologies of your choice
-- [ ] Use Github open API to display the data
+- [x] Use Github open API to display the data
   - https://api.github.com/users/octocat
   - https://api.github.com/users/octocat/repos
 - [x] Overview view > Display most popular repository cards ordered by most starred.
-- [ ] Repositories view > display all repositories ordered by the latest update.
+- [x] Repositories view > display all repositories ordered by the latest update.
 - [ ] Repositories view > Enable user to filter/search in the repository list
 
 ### Bonus Points
 
 - [ ] Lazy load repositories view
 - [ ] Unit tests
-- [ ] Flair & Features?
 
 ## Libraries Used
 

@@ -18,7 +18,7 @@ In order to run the application run the following commands in a terminal.
 
 ## Acceptance Criteria
 
-- [ ] Code the UI mockups below using the frontend technologies of your choice (We use React stack)
+- [x] Code the UI mockups below using the frontend technologies of your choice
 - [ ] Use Github open API to display the data
   - https://api.github.com/users/octocat
   - https://api.github.com/users/octocat/repos
@@ -37,6 +37,7 @@ In order to run the application run the following commands in a terminal.
 - `react` - my front-end framework of choice for performance and ease of use.
 - [`create-react-app`](https://github.com/facebook/create-react-app) - ability to get up and running quickly
 - [`react-icons`](https://react-icons.github.io/react-icons/icons?name=go) - pull in GitHub icons
+- [`moment`](https://momentjs.com/) - used to clean up and compare dates
 
 # Create React App
 

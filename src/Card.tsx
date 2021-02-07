@@ -13,10 +13,10 @@ const Card = ({ repo }: CardProps) => {
           <a href={repo.url}>{repo.name}</a>
           {/* <span className="forked">Forked from {}</span> */}
         </h3>
-        <span className="btn">
+        <button className="btn">
           <GoStar />
           Star
-        </span>
+        </button>
       </div>
       <p>{repo.description}</p>
       <div className="card-footer">
@@ -34,6 +34,7 @@ const Card = ({ repo }: CardProps) => {
           <GoRepoForked />
           {formatNum(repo.forks)}
         </span>
+        <span>{repo.updated_at}</span>
       </div>
     </div>
   );

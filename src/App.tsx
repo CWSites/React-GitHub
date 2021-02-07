@@ -12,6 +12,7 @@ export type Repo = {
   language: string;
   name: string;
   stargazers_count: number;
+  updated_at: Date;
   url: string;
 };
 export type Repos = Array<Repo>;
@@ -39,7 +40,7 @@ const App = () => {
 
   const evaluateResult = (repos: Repos) => {
     if (repos.length > 0) {
-      const sortedRepos: Repos = sortByStars(repos);
+      const sortedRepos: Repos = sortRepos(repos);
       localStorage.setItem("repos", JSON.stringify(sortedRepos));
       updateRepos(sortedRepos);
     } else {
@@ -47,8 +48,12 @@ const App = () => {
     }
   };
 
-  const sortByStars = (repos: Repos) => {
-    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  const sortRepos = (repos: Repos) => {
+    if (path === "/") {
+      repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    } else {
+      repos.sort((a, b) => b.updated_at.getTime() - a.updated_at.getTime());
+    }
     return repos;
   };
 
@@ -94,17 +99,17 @@ const App = () => {
       <main className={path.replace("/", "")}>
         <header>
           <h2>Popular repositories</h2>
-          <span className="btn refresh" onClick={refreshData}>
+          <button className="btn refresh" onClick={refreshData}>
             Refresh
-          </span>
+          </button>
           <div className="filter">
             <input type="search" placeholder="Find a repository..." />
-            <span className="btn">
+            <button className="btn">
               Type: <strong>All</strong>
-            </span>
-            <span className="btn">
+            </button>
+            <button className="btn">
               Language: <strong>All</strong>
-            </span>
+            </button>
           </div>
         </header>
         <section className="content">

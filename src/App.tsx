@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Repositories from "./Repositories";
+import Card from "./Card";
 import "./App.scss";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
 const lsRepos = localStorage.getItem("repos");
+const path = window.location.pathname;
 
 export type Repo = {
   description: string;
@@ -14,6 +15,15 @@ export type Repo = {
   url: string;
 };
 export type Repos = Array<Repo>;
+export type Tab = "overview" | "repositories";
+
+export const formatNum = (num: number) => {
+  return num > 999
+    ? num % 1000 === 0
+      ? (num / 1000).toFixed(0) + "k"
+      : (num / 1000).toFixed(1) + "k"
+    : num;
+};
 
 const App = () => {
   const [fetchStatus, updateFetchStatus] = useState(false);
@@ -38,7 +48,6 @@ const App = () => {
   };
 
   const sortByStars = (repos: Repos) => {
-    // sort repos desc based on stars
     repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
     return repos;
   };
@@ -71,22 +80,37 @@ const App = () => {
   return (
     <div className="app">
       <nav className="main-nav">
-        <a href="/" className="active">
+        <a className={path === "/" ? "active" : ""} href="/">
           Overview
         </a>
-        <a href="/">
+        <a
+          className={path === "/repositories" ? "active" : ""}
+          href="/repositories"
+        >
           Repositories
           <span className="count">{repos ? repos.length : "0"}</span>
         </a>
       </nav>
-      <main>
+      <main className={path.replace("/", "")}>
         <header>
           <h2>Popular repositories</h2>
-          <span className="refresh" onClick={refreshData}>
+          <span className="btn refresh" onClick={refreshData}>
             Refresh
           </span>
+          <div className="filter">
+            <input type="search" placeholder="Find a repository..." />
+            <span className="btn">
+              Type: <strong>All</strong>
+            </span>
+            <span className="btn">
+              Language: <strong>All</strong>
+            </span>
+          </div>
         </header>
-        <Repositories repos={repos} />
+        <section className="content">
+          {repos.length > 0 &&
+            repos.map((repo, index) => <Card key={index} repo={repo} />)}
+        </section>
       </main>
     </div>
   );

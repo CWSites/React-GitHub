@@ -22,7 +22,7 @@ In order to run the application run the following commands in a terminal.
 - [ ] Use Github open API to display the data
   - https://api.github.com/users/octocat
   - https://api.github.com/users/octocat/repos
-- [ ] Overview view > Display most popular repository cards ordered by most starred.
+- [x] Overview view > Display most popular repository cards ordered by most starred.
 - [ ] Repositories view > display all repositories ordered by the latest update.
 - [ ] Repositories view > Enable user to filter/search in the repository list
 

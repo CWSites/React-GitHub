@@ -1,12 +1,45 @@
 @import "./colors";
 
 $gutter: 8px;
-$borderColor: #eaecef;
+$borderColor: rgba(27, 31, 35, 0.15);
 $linkColor: #0366d6;
 
 .app {
   margin: 5vh auto;
   width: 80vw;
+}
+
+.btn {
+  align-items: center;
+  background: rgb(250, 251, 252);
+  border: 1px solid $borderColor;
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 0 inset;
+  cursor: pointer;
+  display: flex;
+  float: right;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px $gutter * 2;
+  margin-left: $gutter/2;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+
+  &:hover,
+  &:focus {
+    background: rgb(243, 244, 246);
+    border-color: $borderColor;
+  }
+
+  svg {
+    font-size: 1.1rem;
+    margin-right: $gutter/2;
+  }
+
+  strong {
+    font-weight: 700;
+    margin-left: $gutter/2;
+  }
 }
 
 nav.main-nav {
@@ -44,33 +77,17 @@ header {
   color: #24292e;
   display: flex;
   justify-content: space-between;
-  padding: $gutter * 3 0 $gutter;
+  padding: $gutter * 3 0 $gutter * 2;
 
   h2 {
     display: inline-block;
     font-weight: 400;
     font-size: 1.2rem;
   }
+}
 
-  .refresh {
-    background: rgb(250, 251, 252);
-    border: 1px solid rgba(27, 31, 35, 0.15);
-    border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
-      rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
-    cursor: pointer;
-    float: right;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 5px $gutter * 2;
-    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-
-    &:hover,
-    &:focus {
-      background: rgb(243, 244, 246);
-      border-color: rgba(27, 31, 35, 0.15);
-    }
-  }
+.filter {
+  display: none;
 }
 
 section.content {
@@ -90,12 +107,21 @@ section.content {
   padding: $gutter * 2;
   width: calc(50% - 18px);
 
-  h3 a {
-    color: $linkColor;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
 
-    &:hover,
-    &:focus {
-      border-bottom: 2px solid $linkColor;
+    h3 a {
+      color: $linkColor;
+
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid $linkColor;
+      }
+    }
+
+    .btn {
+      display: none;
     }
   }
 
@@ -129,6 +155,47 @@ section.content {
       position: relative;
       top: 1px;
       width: 12px;
+    }
+  }
+}
+
+main.repositories {
+  header {
+    border-bottom: 1px solid $borderColor;
+
+    .filter {
+      display: flex;
+      width: 100%;
+
+      input {
+        border: 1px solid $borderColor;
+        height: 36px;
+        flex-grow: 1;
+        margin-right: $gutter * 3;
+        padding: 0 $gutter;
+      }
+    }
+
+    h2,
+    .refresh {
+      display: none;
+    }
+  }
+
+  section.content {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .card {
+    border: none;
+    border-bottom: 1px solid $borderColor;
+    margin: 0;
+    padding: $gutter * 3 0;
+    width: 100%;
+
+    .card-header .btn {
+      display: flex;
     }
   }
 }

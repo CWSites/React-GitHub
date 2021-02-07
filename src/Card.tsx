@@ -1,4 +1,5 @@
-import { GoRepoForked, GoStar } from "react-icons/go";
+import { GoLaw, GoRepoForked, GoStar } from "react-icons/go";
+import { formatDistance } from "date-fns";
 import { formatNum, Repo } from "./App";
 
 export interface CardProps {
@@ -34,7 +35,15 @@ const Card = ({ repo }: CardProps) => {
           <GoRepoForked />
           {formatNum(repo.forks)}
         </span>
-        <span>{repo.updated_at}</span>
+        {repo.license && (
+          <span className="license">
+            <GoLaw />
+            {repo.license.name}
+          </span>
+        )}
+        <span className="updated">
+          {`${formatDistance(new Date(repo.updated_at), new Date())} ago`}
+        </span>
       </div>
     </div>
   );

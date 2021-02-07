@@ -6,10 +6,18 @@ const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
 const lsRepos = localStorage.getItem("repos");
 const path = window.location.pathname;
 
+export type License = {
+  key: string;
+  name: string;
+  spdx_id: string;
+  url: string;
+  node: string;
+};
 export type Repo = {
   description: string;
   forks: number;
   language: string;
+  license: License;
   name: string;
   stargazers_count: number;
   updated_at: Date;
@@ -62,7 +70,6 @@ const App = () => {
   };
 
   const fetchData = (url: string) => {
-    // prevent from sending repeated requests
     updateFetchStatus(true);
 
     fetch(url, {
@@ -99,15 +106,15 @@ const App = () => {
       <main className={path.replace("/", "")}>
         <header>
           <h2>Popular repositories</h2>
-          <button className="btn refresh" onClick={refreshData}>
+          <button className="refresh" onClick={refreshData}>
             Refresh
           </button>
           <div className="filter">
             <input type="search" placeholder="Find a repository..." />
-            <button className="btn">
+            <button>
               Type: <strong>All</strong>
             </button>
-            <button className="btn">
+            <button>
               Language: <strong>All</strong>
             </button>
           </div>

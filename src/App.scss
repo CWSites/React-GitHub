@@ -179,6 +179,11 @@ main.repositories {
         margin-right: $gutter * 3;
         padding: 0 $gutter;
       }
+
+      button svg {
+        font-size: 0.7rem;
+        margin-left: $gutter/2;
+      }
     }
 
     h2,

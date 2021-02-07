@@ -1,12 +1,9 @@
 # React-GitHub
 
-GitHub repos based on popularity
+GitHub Overview & Repositories tab using React + GitHub's REST API
 
 ## Directions
 
-- You may use any 3rd party libraries you know well that seems like a fit for the scenario.
-- List the libraries in the README and a short description about why you chose each one.
-- If interaction details are missing, use your best judgment and make a note to explain it during the follow-up.
 - Download zip file and upload to Google Drive, email link back to the recruiter.
 
 ## Getting Started
@@ -24,12 +21,19 @@ In order to run the application run the following commands in a terminal.
   - https://api.github.com/users/octocat/repos
 - [x] Overview view > Display most popular repository cards ordered by most starred.
 - [x] Repositories view > display all repositories ordered by the latest update.
-- [ ] Repositories view > Enable user to filter/search in the repository list
+- [x] Repositories view > Enable user to filter/search in the repository list
 
 ### Bonus Points
 
-- [ ] Lazy load repositories view
+- [x] Lazy load repositories view
 - [ ] Unit tests
+
+### Details
+
+- Only 8 repositories returned, lazy loading didn't seem necessary, instead utilized localStorage to make one call and gather all necessary data.
+- Used GitHub icons to match design
+- Used scss of language colors to match language to color rather than hard-code.
+- Filter on name only, chose not to further refine due to time constraints
 
 ## Libraries Used
 
@@ -62,33 +66,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

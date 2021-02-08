@@ -6,8 +6,10 @@ import Nav from "./Nav";
 import "./App.scss";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
+const GitHubUser = "CWSites";
 const lsRepos = localStorage.getItem("repos");
 const updated = localStorage.getItem("updated");
+const staleMinutes = 60;
 
 export type License = {
   key: string;
@@ -18,13 +20,14 @@ export type License = {
 };
 export type Repo = {
   description: string;
+  fork: boolean;
   forks: number;
+  html_url: string;
   language: string;
   license: License;
   name: string;
   stargazers_count: number;
   updated_at: Date;
-  url: string;
 };
 export type Repos = Array<Repo>;
 export type Tab = "overview" | "repositories";
@@ -46,7 +49,7 @@ const App = () => {
 
   useEffect(() => {
     const staleData = updated
-      ? differenceInMinutes(Date.now(), JSON.parse(updated)) > 15
+      ? differenceInMinutes(Date.now(), JSON.parse(updated)) > staleMinutes
       : false;
 
     if ((!lsRepos && !fetchStatus) || staleData) {
@@ -80,12 +83,13 @@ const App = () => {
   };
 
   const fetchData = (url: string) => {
+    console.log("FETCHING DATA");
     updateFetchStatus(true);
 
     fetch(url, {
       headers: {
         Authorization: `token ${GitHubToken}`,
-        "User-Agent": "CWSites",
+        "User-Agent": GitHubUser,
       },
     })
       .then((res) => res.json())
@@ -100,18 +104,37 @@ const App = () => {
   };
 
   const filterRepos = (event: React.FormEvent<HTMLInputElement>) => {
+    const allRepos: Repos = lsRepos ? JSON.parse(lsRepos) : [];
     const newValue = event.currentTarget.value;
-    let filteredRepos = [];
+    let filteredRepos: Repos = [];
 
     if (newValue === "" && lsRepos) {
       filteredRepos = JSON.parse(lsRepos);
     } else {
-      for (let i = 0; i < repos.length; i++) {
-        if (repos[i].name.includes(newValue)) {
-          filteredRepos.push(repos[i]);
+      for (let i = 0; i < allRepos.length; i++) {
+        if (allRepos[i].name.includes(newValue)) {
+          filteredRepos.push(allRepos[i]);
         }
       }
     }
+    updateRepos(filteredRepos);
+  };
+
+  const filterTypeLang = (types: string, langs: string) => {
+    const allRepos: Repos = lsRepos ? JSON.parse(lsRepos) : [];
+    let filteredRepos: Repos = [];
+
+    for (let i = 0; i < allRepos.length; i++) {
+      const langMatch =
+        (langs !== "All" && allRepos[i].language === langs) || langs === "All";
+      const typeMatch =
+        (types !== "All" && allRepos[i].fork) || types === "All";
+
+      if (typeMatch && langMatch) {
+        filteredRepos.push(allRepos[i]);
+      }
+    }
+
     updateRepos(filteredRepos);
   };
 
@@ -119,12 +142,20 @@ const App = () => {
     <div className="app">
       <Nav numRepos={repos ? repos.length : 0} path={path} />
       <main className={path.replace("/", "")}>
-        <Header filter={filterRepos} refresh={refreshData} />
+        <Header
+          filter={filterRepos}
+          filterTypeLang={filterTypeLang}
+          refresh={refreshData}
+          repos={repos}
+        />
         <section className="content">
-          {repos.length > 0 &&
+          {repos.length > 0 ? (
             sortRepos(repos).map((repo, index) => (
               <Card key={index} repo={repo} />
-            ))}
+            ))
+          ) : (
+            <h1 className="no-results">No Results</h1>
+          )}
         </section>
       </main>
     </div>

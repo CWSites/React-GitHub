@@ -11,8 +11,15 @@ const Card = ({ repo }: CardProps) => {
     <div className="card">
       <div className="card-header">
         <h3>
-          <a href={repo.url}>{repo.name}</a>
-          {/* <span className="forked">Forked from {}</span> */}
+          <a href={repo.html_url}>{repo.name}</a>
+          {repo.fork && (
+            <span className="forked">
+              Forked from{" "}
+              <span title="Because the API didn't show where the repo was forked from...">
+                Batman
+              </span>
+            </span>
+          )}
         </h3>
         <button className="btn">
           <GoStar />

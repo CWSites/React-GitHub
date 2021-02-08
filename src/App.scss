@@ -2,6 +2,7 @@
 
 $gutter: 8px;
 $borderColor: rgba(27, 31, 35, 0.15);
+$borderRadius: 6px;
 $linkColor: #0366d6;
 
 .app {
@@ -9,11 +10,19 @@ $linkColor: #0366d6;
   width: 80vw;
 }
 
+h1.no-results {
+  align-items: center;
+  display: flex;
+  font-size: 2rem;
+  height: 300px;
+  justify-content: center;
+}
+
 button {
   align-items: center;
   background: rgb(250, 251, 252);
   border: 1px solid $borderColor;
-  border-radius: 6px;
+  border-radius: $borderRadius;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0 0,
     rgba(255, 255, 255, 0.25) 0 1px 0 0 inset;
   cursor: pointer;
@@ -113,11 +122,17 @@ section.content {
 
     h3 a {
       color: $linkColor;
+      display: block;
 
       &:hover,
       &:focus {
         border-bottom: 2px solid $linkColor;
       }
+    }
+
+    .forked {
+      font-size: 0.8rem;
+      font-weight: 400;
     }
 
     button {
@@ -174,6 +189,7 @@ main.repositories {
 
       input {
         border: 1px solid $borderColor;
+        border-radius: $borderRadius;
         height: 36px;
         flex-grow: 1;
         margin-right: $gutter * 3;
@@ -183,6 +199,60 @@ main.repositories {
       button svg {
         font-size: 0.7rem;
         margin-left: $gutter/2;
+      }
+
+      ul.filter-list {
+        background: #fff;
+        border: 1px solid $borderColor;
+        border-radius: $borderRadius;
+        box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px 0;
+        display: none;
+        font-size: 0.8rem;
+        list-style-type: none;
+        margin: $gutter * 4 0 0 -50px;
+        overflow: hidden;
+        position: absolute;
+        width: 200px;
+
+        &.show {
+          display: block;
+        }
+
+        li {
+          border-bottom: 1px solid $borderColor;
+          cursor: pointer;
+          display: flex;
+          padding: $gutter/2 $gutter * 2;
+
+          &:hover {
+            background: rgb(246, 248, 250);
+          }
+
+          &:first-child {
+            font-weight: 600;
+            justify-content: space-between;
+            padding-right: $gutter;
+
+            svg {
+              color: inherit;
+              margin: 0;
+            }
+          }
+
+          &:last-child {
+            border: none;
+          }
+
+          &.active svg {
+            color: inherit;
+          }
+
+          svg {
+            color: transparent;
+            font-size: 1rem;
+            margin-right: $gutter;
+          }
+        }
       }
     }
 

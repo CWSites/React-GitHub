@@ -28,12 +28,12 @@ In order to run the application run the following commands in a terminal.
 - [x] Lazy load repositories view
 - [ ] Unit tests
 
-### Details
+### Constraints
 
-- Only 8 repositories returned, lazy loading didn't seem necessary, instead utilized localStorage to make one call and gather all necessary data.
-- Used GitHub icons to match design
-- Used scss of language colors to match language to color rather than hard-code.
-- Filter on name only, chose not to further refine due to time constraints
+- Goal of having this completed in < 8 hours
+- Lazy loading of 8 repositories doesn't make sense. Instead utilized localStorage to make one call every hour.
+- Filter on name only
+- Chose not to spend too much time cleaning up filter menus due to time constraints
 
 ## Libraries Used
 

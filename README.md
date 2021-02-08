@@ -2,10 +2,6 @@
 
 GitHub Overview & Repositories tab using React + GitHub's REST API
 
-## Directions
-
-- Download zip file and upload to Google Drive, email link back to the recruiter.
-
 ## Getting Started
 
 In order to run the application run the following commands in a terminal.
@@ -26,7 +22,7 @@ In order to run the application run the following commands in a terminal.
 ### Bonus Points
 
 - [x] Lazy load repositories view
-- [ ] Unit tests
+- [x] Unit tests
 
 ### Constraints
 
@@ -34,6 +30,8 @@ In order to run the application run the following commands in a terminal.
 - Lazy loading of 8 repositories doesn't make sense. Instead utilized localStorage to make one call every hour.
 - Filter on name only
 - Chose not to spend too much time cleaning up filter menus due to time constraints
+- Spent 30 min troubleshooting `watchman` issue with hanging tests.
+- Wrote some basic tests but not extensive for time constraints
 
 ## Libraries Used
 

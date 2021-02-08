@@ -27,7 +27,7 @@ export const Header = ({
     if (languages.length < 1) {
       populateFilters();
     }
-  });
+  }, [languages]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const populateFilters = () => {
     let langOptions: Filters = [];

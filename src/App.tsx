@@ -7,6 +7,7 @@ import "./App.scss";
 
 const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
 const GitHubUser = "CWSites";
+const path = window.location.pathname;
 const lsRepos = localStorage.getItem("repos");
 const updated = localStorage.getItem("updated");
 const staleMinutes = 60;
@@ -40,8 +41,18 @@ export const formatNum = (num: number) => {
     : num;
 };
 
+export const sortRepos = (repos: Repos) => {
+  if (path === "/") {
+    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  } else {
+    repos.sort((a, b) =>
+      compareAsc(new Date(b.updated_at), new Date(a.updated_at))
+    );
+  }
+  return repos;
+};
+
 const App = () => {
-  const path = window.location.pathname;
   const [fetchStatus, updateFetchStatus] = useState(false);
   const [repos, updateRepos] = useState<Repos>(
     lsRepos ? JSON.parse(lsRepos) : []
@@ -58,6 +69,7 @@ const App = () => {
   });
 
   const evaluateResult = (repos: Repos) => {
+    console.log("evaluate results");
     if (repos.length > 0) {
       localStorage.setItem("repos", JSON.stringify(repos));
       localStorage.setItem("updated", Date.now().toString());
@@ -67,23 +79,12 @@ const App = () => {
     }
   };
 
-  const sortRepos = (repos: Repos) => {
-    if (path === "/") {
-      repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-    } else {
-      repos.sort((a, b) =>
-        compareAsc(new Date(b.updated_at), new Date(a.updated_at))
-      );
-    }
-    return repos;
-  };
-
   const refreshData = () => {
+    console.log("refresh data");
     fetchData("https://api.github.com/users/octocat/repos");
   };
 
   const fetchData = (url: string) => {
-    console.log("FETCHING DATA");
     updateFetchStatus(true);
 
     fetch(url, {

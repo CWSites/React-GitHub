@@ -69,7 +69,6 @@ const App = () => {
   });
 
   const evaluateResult = (repos: Repos) => {
-    console.log("evaluate results");
     if (repos.length > 0) {
       localStorage.setItem("repos", JSON.stringify(repos));
       localStorage.setItem("updated", Date.now().toString());
@@ -80,7 +79,6 @@ const App = () => {
   };
 
   const refreshData = () => {
-    console.log("refresh data");
     fetchData("https://api.github.com/users/octocat/repos");
   };
 

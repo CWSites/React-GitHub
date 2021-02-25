@@ -5,8 +5,8 @@ import Header from "./Header";
 import Nav from "./Nav";
 import "./App.scss";
 
-const GitHubToken = "178eb592ad0c8f0355bd64fbb806191bb8aa6ce5";
-const GitHubUser = "CWSites";
+const GitHubToken = "YourTokenHere";
+const GitHubUser = "YourUsernameHere";
 const path = window.location.pathname;
 const lsRepos = localStorage.getItem("repos");
 const updated = localStorage.getItem("updated");

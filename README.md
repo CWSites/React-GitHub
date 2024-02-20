@@ -6,6 +6,7 @@ GitHub Overview & Repositories tab using React + GitHub's REST API
 
 In order to run the application run the following commands in a terminal.
 
+- `yarn install`
 - `yarn start`
 - The app will be available on http://localhost:3000/
 
